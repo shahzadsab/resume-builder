@@ -1,0 +1,35 @@
+# ATS Resume & Cover Letter Builder
+# Zero-cost Python dependencies
+# Install: pip install -r requirements.txt
+# Then run: streamlit run app.py
+
+# ── Core framework ────────────────────────────────────────────────────────────
+streamlit>=1.35.0
+
+# ── Document parsing ──────────────────────────────────────────────────────────
+pdfplumber>=0.10.0          # PDF text extraction (free, no API needed)
+python-docx>=1.1.0          # Read/write .docx files
+
+# ── NLP keyword extraction ────────────────────────────────────────────────────
+spacy>=3.7.0                # Free NLP library
+# After pip install, run: python -m spacy download en_core_web_sm
+# The app falls back to regex extraction if spaCy model is missing.
+
+# ── Company research ──────────────────────────────────────────────────────────
+wikipedia>=1.4.0            # Free Wikipedia API wrapper (no key needed)
+requests>=2.31.0            # HTTP calls for Hugging Face Inference API (free tier)
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+beautifulsoup4>=4.12.0      # HTML parsing (used for any scraping fallbacks)
+
+# ── Optional: local LLM (heavy, ~2GB download) ───────────────────────────────
+# Uncomment only if you want fully offline AI generation (not recommended for
+# Streamlit Cloud due to memory limits). The app works fine without these.
+# transformers>=4.40.0
+# torch>=2.2.0
+
+# ── Note on Hugging Face Inference API (recommended free AI option) ───────────
+# No extra pip package needed – uses the `requests` library above.
+# Get a free token at: https://huggingface.co/settings/tokens
+# Enter token in the sidebar when running the app.
+# Free tier: ~30,000 tokens/month, no credit card required.
